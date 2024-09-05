@@ -1,1 +1,1 @@
-INSERT INTO loan (id, creation_date, principal, length_years, rate) VALUES ('igvy9y', '2024-01-01', 1000, 2, 2.5);
+INSERT INTO loan (id, creation_date, principal, length_years, rate) VALUES ('MYID', '2024-01-01', 1000, 2, 2.5);

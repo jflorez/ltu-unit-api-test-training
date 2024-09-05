@@ -17,6 +17,6 @@ public class LoanController {
     public RESTResponse<Double> getInterest(@PathVariable String id) {
         var loan = loansDBService.readLoan(id);
         var interestCalculator = new InterestCalculator();
-        return new RESTResponse<Double>("success", interestCalculator.simpleInterest(loan));
+        return new RESTResponse<>("success", interestCalculator.simpleInterest(loan));
     }
 }

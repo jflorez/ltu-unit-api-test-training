@@ -17,7 +17,7 @@ import com.planit.simpleREST.controllers.RESTResponse;
 class SimpleRestApplicationTests {
 
 	/**
-	 * This test has issues that make it brittle.
+	 * TODO: This test has issues that make it brittle.
 	 * How can the test be improved?
 	 * What is the purpose of the test?
 	 * 
@@ -26,7 +26,7 @@ class SimpleRestApplicationTests {
 	
 	@Test
 	void contextLoads(@Autowired WebTestClient webTestClient) {
-		RESTResponse<Double> body = webTestClient.get().uri("/loan/igvy9y/interest")
+		RESTResponse<Double> body = webTestClient.get().uri("/loan/MYID/interest")
 				     .exchange()
 					 .expectStatus().isOk()
 					 .expectBody(RESTResponse.class)

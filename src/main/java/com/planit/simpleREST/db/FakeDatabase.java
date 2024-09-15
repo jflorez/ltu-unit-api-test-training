@@ -2,10 +2,8 @@ package com.planit.simpleREST.db;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 public class FakeDatabase {
     private List<Map<String, Object>> database = new ArrayList<>();
     public FakeDatabase() {
@@ -17,12 +15,13 @@ public class FakeDatabase {
     }
 
     public void insertRow(String id, LocalDate creationDate, double principal, int lengthYears, double rate) {
-        Map<String, Object> entry = new HashMap<>();
-        entry.put("id", id);
-        entry.put("creationDate", creationDate);
-        entry.put("principal", principal);
-        entry.put("lengthYears", lengthYears);
-        entry.put("rate", rate);
+        Map<String, Object> entry = Map.of(
+            "id", id,
+            "creationDate", creationDate,
+            "principal", principal,
+            "lengthYears", lengthYears,
+            "rate", rate
+        );
         database.add(entry);
     }
 

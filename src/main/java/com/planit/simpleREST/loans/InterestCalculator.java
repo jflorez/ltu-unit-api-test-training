@@ -1,5 +1,7 @@
 package com.planit.simpleREST.loans;
 
+import com.planit.simpleREST.db.FakeDatabase;
+
 public class InterestCalculator {
     /**
      * TODO: This method is an example of non testable code.
@@ -9,7 +11,9 @@ public class InterestCalculator {
      * @param loanId
      * @return simple interest calculation
      */
-    public double simpleInterest(LoanEntry loan) {
-        return loan.principal*loan.rate*loan.lengthYears/100;
+    public double simpleInterest(String loadId) {
+        FakeDatabase db = new FakeDatabase();
+        var loan = db.findEntry("id", loadId);
+        return (double) loan.get("principal") * (double) loan.get("rate") * (int) loan.get("lengthYears") / 100;
     }
 }

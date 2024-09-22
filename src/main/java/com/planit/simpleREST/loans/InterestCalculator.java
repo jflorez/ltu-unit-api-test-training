@@ -1,5 +1,6 @@
 package com.planit.simpleREST.loans;
 
+import com.planit.simpleREST.db.Database;
 import com.planit.simpleREST.db.FakeDatabase;
 
 public class InterestCalculator {
@@ -12,7 +13,7 @@ public class InterestCalculator {
      * @return simple interest calculation
      */
     public double simpleInterest(String loadId) {
-        FakeDatabase db = new FakeDatabase();
+        Database db = new FakeDatabase();
         var loan = db.findEntry("id", loadId);
         return (double) loan.get("principal") * (double) loan.get("rate") * (int) loan.get("lengthYears") / 100;
     }

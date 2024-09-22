@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-public class FakeDatabase {
+public class FakeDatabase implements Database {
     private List<Map<String, Object>> database = new ArrayList<>();
     public FakeDatabase() {
         insertRow("1", LocalDate.of(2021, 1, 1), 
@@ -19,6 +19,7 @@ public class FakeDatabase {
                   30000.0, 25, 5.5);
     }
 
+    @Override
     public void insertRow(String id, LocalDate creationDate, double principal, int lengthYears, double rate) {
         Map<String, Object> entry = Map.of(
             "id", id,
@@ -30,6 +31,7 @@ public class FakeDatabase {
         database.add(entry);
     }
 
+    @Override
     public Map<String, Object> findEntry(String key, Object value) {
         return database.stream()
                 .filter(entry -> entry.containsKey(key) && entry.get(key).equals(value))
